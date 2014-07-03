@@ -4,9 +4,19 @@
     <meta charset="utf-8" />
     <title>Shortly</title>
     <link rel="stylesheet" type="text/css" href="styles/style.css" />
+    <link rel="stylesheet" type="text/css" href="lib/bootstrap/dist/css/bootstrap.css" />
   </head>
   <body>
-    <h1>Shortly</h1>
+    <nav class="navbar navbar-default" role="navigation">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <a class="navbar-brand"><b>Shortly</b></a>
+        </div>
+        <div class=" navbar-form navbar-right">
+          <button type="submit" class="btn btn-success">Logout</button>
+        </div>
+      </div>
+    </nav>
 
     <!-- the ng-view directive is where our templates will be loaded into when naviagted to -->
     <div ng-view>

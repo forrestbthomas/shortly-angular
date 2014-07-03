@@ -1,3 +1,16 @@
+<div id='container' ng-controller='ShortenController'>
+<!-- Your code here -->
+  <a href="#/links">View All Links</a>
+  <form ng-submit="addLink()" name="urlEntry">
+    <input type='url' ng-model="link.url" placeholder="Enter a url....">
+    <p>{{ link.url }}</p>
+    <button ng-disabled="urlEntry.$invalid">Shrtn!!!!</button>
+
+  </form>
+
+</div>
+
+
 <div id='container' ng-controller='LinksController'>
   <!-- Your html here -->
   <a href="#/shorten">Shorten a link</a>
@@ -8,7 +21,7 @@
     <li>
       {{ link.title }} - {{link.url}} - {{link.visits}}
       <div>
-        {{link.base_url}}/{{link.code}}
+        <a href={{link.base_url}}/api/links/{{link.code}}>{{link.base_url}}/api/links/{{link.code}}</a>
       </div>
     </li>
   </ul>
