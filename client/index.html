@@ -12,8 +12,8 @@
         <div class="navbar-header">
           <a class="navbar-brand"><b>Shortly</b></a>
         </div>
-        <div class=" navbar-form navbar-right">
-          <button type="submit" class="btn btn-success">Logout</button>
+        <div class=" navbar-form navbar-right" ng-controller="AuthController">
+          <button type="submit" class="btn btn-success" ng-click="signout()" ng-if="isUserLoggedIn()">Logout</button>
         </div>
       </div>
     </nav>
