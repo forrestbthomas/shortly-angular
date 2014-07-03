@@ -2,6 +2,14 @@
   <!-- Your html here -->
   <a href="#/shorten">Shorten a link</a>
 
-  <ul ng-repeat='link in data'></ul>
-  <li>{{ link.title }}{{link.url}}</li>
+  <input type="search" ng-model="f" placeholder="search for a link" />
+
+  <ul ng-repeat="link in data.links | orderBy:'title' | filter:f">
+    <li>
+      {{ link.title }} - {{link.url}} - {{link.visits}}
+      <div>
+        {{link.base_url}}/{{link.code}}
+      </div>
+    </li>
+  </ul>
 </div>
