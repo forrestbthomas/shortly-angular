@@ -1,4 +1,4 @@
-<div id='container' ng-controller='LinksController'>
+<div id='container'>
   <div class="row">
     <form ng-submit="addLink()" name="urlEntry" class="form-inline">
       <div class="input-group col-sm-6 col-sm-offset-1" ng-class="{ 'has-error': urlEntry.$invalid && !urlEntry.$pristine }">
@@ -18,8 +18,8 @@
         <input type="search" ng-model="f" placeholder="search for a link" class="form-control" />
       </div>
     </div>
-    <div class="container" ng-repeat="link in data.links | orderBy:'-visits' | filter:f">
-      <div class="row">
+    <div class="container fx-zoom-right fx-easing-bounce fx-speed-800" ng-repeat="link in data.links | filter:f">
+      <div class="row ">
         <div class="col-sm-8">
           <h4>{{ link.title }}</h4>
           <a href={{link.base_url}}/api/links/{{link.code}}>

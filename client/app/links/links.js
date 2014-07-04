@@ -1,6 +1,6 @@
 angular.module('shortly.links', [])
 
-.controller('LinksController', function ($scope, Links) {
+.controller('LinksController', function ($scope, Links, $timeout) {
   // Your code here
   $scope.link = {};
   $scope.loading = false;
@@ -24,9 +24,19 @@ angular.module('shortly.links', [])
   $scope.getLinks = function(){
     Links.getLinksFromServer()
       .then(function(linkData){
-        console.log(linkData);
+        console.dir(linkData);
 
-        $scope.data.links = linkData;
+        $scope.data.links = [];
+
+
+        linkData.sort(function(a,b){return a._id < b._id});
+        linkData.sort(function(a,b){return a.visits > b.visits});
+
+        for (var i = 0; i < linkData.length; i++){
+          $timeout(function(){
+            $scope.data.links.push(linkData.pop());
+          }, 60 * i);
+        }
       })
       .catch(function (error) {
         console.error(error);
