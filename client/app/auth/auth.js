@@ -27,4 +27,14 @@ angular.module('shortly.auth', [])
         console.error(error);
       });
   };
+
+  $scope.signout = function(){
+    Auth.signout();
+  };
+
+  $scope.isUserLoggedIn = function(){
+
+    var token = $window.localStorage.getItem('com.shortly');
+    return !!token;
+  };
 });

@@ -1,3 +1,43 @@
 <div id='container'>
-  <!-- Your html here -->
+  <div class="row">
+    <form ng-submit="addLink()" name="urlEntry" class="form-inline">
+      <div class="input-group col-sm-6 col-sm-offset-1" ng-class="{ 'has-error': urlEntry.$invalid && !urlEntry.$pristine }">
+        <input type='url' ng-model="link.url" placeholder="Enter a url...." class="form-control input-lg">
+      </div>
+      <div class="input-group">
+        <button ng-disabled="urlEntry.$invalid" class=" btn btn-primary col-sm-offset-1 btn-lg" >Shrtn!!!!</button>
+      </div>
+
+    </form>
+  </div>
+
+  <div class="container-fluid">
+    <div class="container">
+      <h1>Here Are Your Links</h1>
+      <div class="row col-sm-3">
+        <input type="search" ng-model="f" placeholder="search for a link" class="form-control" />
+      </div>
+    </div>
+    <div class="container fx-zoom-right fx-easing-bounce fx-speed-800" ng-repeat="link in data.links | filter:f">
+      <div class="row ">
+        <div class="col-sm-8">
+          <h4>{{ link.title }}</h4>
+          <a href={{link.base_url}}/api/links/{{link.code}}>
+            {{link.base_url}}/api/links/{{link.code}}
+          </a>
+        </div>
+        <div class="col-sm-1 col-sm-offset-2">
+          <h2>{{link.visits}}</h2>
+        </div>
+      </div>
+
+
+    </div>
+  </div>
 </div>
+
+
+
+
+
+

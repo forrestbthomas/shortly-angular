@@ -3,7 +3,9 @@ angular.module('shortly', [
   'shortly.links',
   'shortly.shorten',
   'shortly.auth',
-  'ngRoute'
+  'ngRoute',
+  'ngAnimate',
+  'fx.animations'
 ])
 .config(function($routeProvider, $httpProvider) {
   $routeProvider
@@ -15,6 +17,18 @@ angular.module('shortly', [
       templateUrl: 'app/auth/signup.html',
       controller: 'AuthController'
     })
+    .when('/links', {
+      templateUrl: 'app/links/links.html',
+      controller: 'LinksController'
+    })
+    .when('/shorten', {
+      templateUrl: 'app/shorten/shorten.html',
+      controller: 'ShortenController'
+    })
+    .otherwise({
+      redirectTo: '/links'
+    });
+
     // Your code here
 
     // We add our $httpInterceptor into the array

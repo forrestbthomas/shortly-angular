@@ -1,5 +1,12 @@
-<div id='container'>
+<div id='container' ng-controller='ShortenController'>
 <!-- Your code here -->
+  <a href="#/links">View All Links</a>
+  <form ng-submit="addLink()" name="urlEntry">
+    <input type='url' ng-model="link.url" placeholder="Enter a url....">
+    <p>{{ link.url }}</p>
+    <button ng-disabled="urlEntry.$invalid">Shrtn!!!!</button>
+
+  </form>
 
 </div>
 
